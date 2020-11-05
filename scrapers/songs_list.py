@@ -8,10 +8,10 @@ genius = lyricsgenius.Genius(genius_token)
 COLUMNS = ["Artist", "Title"]
 
 
-def get_songs(artist_name, count):
+def get_songs(artist_name, count, filename):
     df = pd.DataFrame(columns=COLUMNS)
-    if not os.path.isfile("./data/songs.csv"):
-        df.to_csv("./data/songs.csv")
+    if not os.path.isfile(f"./data/{filename}.csv"):
+        df.to_csv(f"./data/{filename}.csv")
     try:
         artist = genius.search_artist(artist_name, max_songs=count)
     except ValueError:
@@ -21,7 +21,7 @@ def get_songs(artist_name, count):
             try:
                 df = df.append({'Artist': song.artist,
                                 'Title': song.title}, ignore_index=True)
-                df.to_csv("./data/songs.csv", mode="a", index=False,
+                df.to_csv(f"./data/{filename}.csv", mode="a", index=False,
                           header=False)
                 df = pd.DataFrame(columns=COLUMNS)
             except ValueError:

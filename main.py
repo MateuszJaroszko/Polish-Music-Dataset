@@ -7,4 +7,4 @@ if __name__ == "__main__":
         yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 
     for artist in yaml_data['Artists']:
-        songs_list.get_songs(artist, 3)
+        songs_list.get_songs(artist, None, filename="all_titles")
