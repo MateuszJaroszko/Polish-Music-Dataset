@@ -10,7 +10,7 @@ COLUMNS = ["Artist", "Title"]
 
 def get_songs(artist_name, count, filename):
     try:
-        genius = lyricsgenius.Genius(genius_token)
+        genius = lyricsgenius.Genius(genius_token, timeout=10)
         df = pd.DataFrame(columns=COLUMNS)
         if not os.path.isfile(f"./data/{filename}.csv"):
             df.to_csv(f"./data/{filename}.csv")
