@@ -1,24 +1,20 @@
 import lyricsgenius
 import pandas as pd
 import os
+from .config import CONFIG
 
-genius_token = ""
-
-genius = lyricsgenius.Genius(genius_token, timeout=10)
+genius = lyricsgenius.Genius(CONFIG['CLIENT_TOKEN'], timeout=CONFIG['TIMEOUT'])
 
 def dataframe_init(filename):
     df = pd.DataFrame(columns=['title', 'album', 'year', 'lyrics', 'image'])
     if not os.path.isfile(f"./data/{filename}.csv"):
             df.to_csv(f"./data/{filename}.csv", index=False)
-            print("CREATE DATAFRAME")
 
 def get_songs(artist_name, max_songs, filename):
     df = pd.read_csv(f"./data/{filename}.csv")
     artist = genius.search_artist(artist_name, max_songs=max_songs)
-    print("Finish GENIUS API") 
     for song in artist.songs:
         try:
-            print("Start writing songs")
             song = song.to_dict()
             song['artist'] = artist.name
                 
