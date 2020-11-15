@@ -1,4 +1,5 @@
 FILENAME: 'songs'
-COUNT: None
-CLIENT_TOKEN: ''
+COUNT: 3
+CLIENT_TOKEN: 'IhIutibSzqX1xUJIkiHVR8Tap_piSafFiKWZRKKrW2WmP5sUi-80_njfxqNHwzRU'
 TIMEOUT: 10
+LOG_FILE: 'log.txt'
