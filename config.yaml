@@ -1,5 +1,5 @@
 FILENAME: 'songs'
-COUNT: None
+COUNT: null
 CLIENT_TOKEN: ''
 TIMEOUT: 10
 LOG_FILE: 'log.txt'
